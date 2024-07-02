@@ -11,7 +11,7 @@ interface Country {
   providedIn: 'root'
 })
 export class CountryService {
-  private apiUrl = 'http://localhost:8080/api/countries';
+  private apiUrl = 'https://ecommerce-il4q.onrender.com/api/countries';
 
   constructor(private http: HttpClient) {}
 

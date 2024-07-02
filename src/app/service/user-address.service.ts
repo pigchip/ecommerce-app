@@ -24,7 +24,7 @@ export interface UserAddressPayload {
   providedIn: 'root'
 })
 export class UserAddressService {
-  private apiUrl = 'http://localhost:8080/api/user_addresses';
+  private apiUrl = 'https://ecommerce-il4q.onrender.com/api/user_addresses';
 
   constructor(private http: HttpClient) {}
 

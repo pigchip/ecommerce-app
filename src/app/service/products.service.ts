@@ -7,7 +7,7 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
   })
 export class ProductsService {
-    private url = 'http://localhost:8080/api/product';
+    private url = 'https://ecommerce-il4q.onrender.com/api/product';
 
     constructor(
         private http: HttpClient

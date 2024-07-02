@@ -8,7 +8,7 @@ import { ShopOrder } from '../model/ShopOrder';
 })
 export class ShopOrderService {
 
-  private apiUrl = 'http://localhost:8080/api/shop-orders';
+  private apiUrl = 'https://ecommerce-il4q.onrender.com/api/shop-orders';
 
   constructor(private http: HttpClient) { }
 

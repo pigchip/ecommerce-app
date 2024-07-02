@@ -71,14 +71,14 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   loadDefaultAddress(): void {
-    this.http.get<any>(`http://localhost:8080/api/user_addresses/user/${this.userId}`).subscribe(addresses => {
+    this.http.get<any>(`https://ecommerce-il4q.onrender.com/api/user_addresses/user/${this.userId}`).subscribe(addresses => {
       this.defaultAddress = addresses.find((address: any) => address.default);
       this.checkCanCheckout();
     });
   }
 
   loadDefaultPaymentMethod(): void {
-    this.http.get<any>(`http://localhost:8080/api/user-payment-methods/user/${this.userId}`).subscribe(paymentMethods => {
+    this.http.get<any>(`https://ecommerce-il4q.onrender.com/api/user-payment-methods/user/${this.userId}`).subscribe(paymentMethods => {
       this.defaultPaymentMethod = paymentMethods.find((method: any) => method.isDefault);
       this.checkCanCheckout();
     });
@@ -162,7 +162,7 @@ export class ShoppingCartComponent implements OnInit {
     let completedRequests = 0;
 
     orderLineRequests.forEach(orderLine => {
-      this.http.post<any>('http://localhost:8080/api/order-lines', orderLine).subscribe(() => {
+      this.http.post<any>('https://ecommerce-il4q.onrender.com/api/order-lines', orderLine).subscribe(() => {
         completedRequests++;
         if (completedRequests === orderLineRequests.length) {
           this.emptyCart();

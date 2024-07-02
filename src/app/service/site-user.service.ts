@@ -7,7 +7,7 @@ import { SiteUser, SiteUserDTO } from '../model/SiteUser';
   providedIn: 'root'
 })
 export class SiteUserService {
-  private apiUrl = 'http://localhost:8080/api/users';
+  private apiUrl = 'https://ecommerce-il4q.onrender.com/api/users';
 
   constructor(private http: HttpClient) { }
 

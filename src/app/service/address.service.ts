@@ -18,7 +18,7 @@ interface Address {
   providedIn: 'root'
 })
 export class AddressService {
-  private apiUrl = 'http://localhost:8080/api/addresses';
+  private apiUrl = 'https://ecommerce-il4q.onrender.com/api/addresses';
 
   constructor(private http: HttpClient) {}
 

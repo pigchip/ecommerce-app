@@ -28,7 +28,7 @@ export class ShopOrderComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.authService.getUserId();
     if (this.userId) {
-      this.http.get<any[]>(`http://localhost:8080/api/shop-orders/user/${this.userId}`).subscribe(orders => {
+      this.http.get<any[]>(`https://ecommerce-il4q.onrender.com/api/shop-orders/user/${this.userId}`).subscribe(orders => {
         this.orders = orders;
       });
     }

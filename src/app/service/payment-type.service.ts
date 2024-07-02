@@ -11,7 +11,7 @@ export interface PaymentType {
   providedIn: 'root'
 })
 export class PaymentTypeService {
-  private apiUrl = 'http://localhost:8080/api/payment-types';
+  private apiUrl = 'https://ecommerce-il4q.onrender.com/api/payment-types';
 
   constructor(private http: HttpClient) {}
 

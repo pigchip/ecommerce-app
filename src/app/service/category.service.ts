@@ -7,7 +7,7 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
   })
 export class CategoryService {
-    private url = 'http://localhost:8080/api/category';
+    private url = 'https://ecommerce-il4q.onrender.com/api/category';
 
     constructor(
         private http: HttpClient

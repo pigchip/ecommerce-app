@@ -35,8 +35,8 @@ export interface SiteUser {
   providedIn: 'root'
 })
 export class ShoppingCartService {
-  private apiUrl = 'http://localhost:8080/api/shopping-carts';
-  private baseUrl = 'http://localhost:8080/api/shopping-carts';
+  private apiUrl = 'https://ecommerce-il4q.onrender.com/api/shopping-carts';
+  private baseUrl = 'https://ecommerce-il4q.onrender.com/api/shopping-carts';
 
   constructor(private http: HttpClient) { }
 
