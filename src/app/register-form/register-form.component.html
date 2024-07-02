@@ -1,0 +1,26 @@
+<p-card class="register-card">
+  <div class="register-form-container">
+    <h2>Registro</h2>
+    <p-messages [value]="[{ severity: 'info', summary: 'Info', detail: 'Por favor, complete el formulario para registrarse.' }]"></p-messages>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <p-floatLabel class="form-field">
+        <input id="emailAddress" type="email" pInputText formControlName="emailAddress">
+        <label for="emailAddress">Correo Electrónico</label>
+      </p-floatLabel>
+      <p-floatLabel class="form-field">
+        <input id="userName" type="text" pInputText formControlName="userName">
+        <label for="userName">Nombre de Usuario</label>
+      </p-floatLabel>
+      <p-floatLabel class="form-field">
+        <input id="phoneNumber" type="text" pInputText formControlName="phoneNumber">
+        <label for="phoneNumber">Número de Teléfono</label>
+      </p-floatLabel>
+      <p-floatLabel class="form-field">
+        <input id="password" type="password" pPassword formControlName="password">
+        <label for="password">Contraseña</label><br>
+      </p-floatLabel>
+      <button pButton type="submit" label="Registrarse"></button>
+    </form>
+    <p-toast></p-toast>
+  </div>
+</p-card>

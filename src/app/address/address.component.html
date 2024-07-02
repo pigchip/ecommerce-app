@@ -1,0 +1,101 @@
+<p-card class="address-card">
+  <div class="address-form-container">
+    <h2>Dirección</h2>
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmit()" class="p-fluid">
+      <div class="p-field">
+        <label for="addressLine1">Línea de Dirección 1:</label><br>
+        <input id="addressLine1" formControlName="addressLine1" pInputText class="full-width-input" />
+        <small *ngIf="addressForm.get('addressLine1')?.touched && addressForm.get('addressLine1')?.invalid" class="p-error">
+          Línea de Dirección 1 es requerida y no puede exceder 240 caracteres.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="addressLine2">Línea de Dirección 2:</label><br>
+        <input id="addressLine2" formControlName="addressLine2" pInputText class="full-width-input" />
+        <small *ngIf="addressForm.get('addressLine2')?.touched && addressForm.get('addressLine2')?.invalid" class="p-error">
+          Línea de Dirección 2 no puede exceder 240 caracteres.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="city">Ciudad:</label><br>
+        <input id="city" formControlName="city" pInputText class="full-width-input" />
+        <small *ngIf="addressForm.get('city')?.touched && addressForm.get('city')?.invalid" class="p-error">
+          Ciudad es requerida y no puede exceder 240 caracteres.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="region">Región:</label><br>
+        <input id="region" formControlName="region" pInputText class="full-width-input" />
+        <small *ngIf="addressForm.get('region')?.touched && addressForm.get('region')?.invalid" class="p-error">
+          Región es requerida y no puede exceder 240 caracteres.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="postalCode">Código Postal:</label><br>
+        <input id="postalCode" formControlName="postalCode" pInputText class="full-width-input" />
+        <small *ngIf="addressForm.get('postalCode')?.touched && addressForm.get('postalCode')?.invalid" class="p-error">
+          Código Postal es requerido y debe ser un número y no puede exceder 20 caracteres.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="streetNumber">Número de Calle:</label><br>
+        <input id="streetNumber" formControlName="streetNumber" pInputText class="full-width-input" />
+        <small *ngIf="addressForm.get('streetNumber')?.touched && addressForm.get('streetNumber')?.invalid" class="p-error">
+          Número de Calle es requerido y no puede exceder 240 caracteres.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="unitNumber">Número de Unidad:</label><br>
+        <input id="unitNumber" formControlName="unitNumber" pInputText class="full-width-input" />
+        <small *ngIf="addressForm.get('unitNumber')?.touched && addressForm.get('unitNumber')?.invalid" class="p-error">
+          Número de Unidad no puede exceder 240 caracteres.
+        </small>
+      </div>
+
+      <div class="p-field">
+        <label for="countryId">País:</label><br>
+        <p-dropdown [options]="countries" optionLabel="countryName" formControlName="countryId" class="full-width-input" placeholder="Seleccionar País"></p-dropdown>
+        <small *ngIf="addressForm.get('countryId')?.touched && addressForm.get('countryId')?.invalid" class="p-error">
+          País es requerido.
+        </small>
+      </div>
+
+      <button pButton type="submit" label="Enviar" class="full-width-button"></button>
+    </form>
+  </div>
+</p-card>
+
+<p-table [value]="addresses" class="p-mt-4">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Línea de Dirección 1</th>
+      <th>Línea de Dirección 2</th>
+      <th>Ciudad</th>
+      <th>Región</th>
+      <th>Código Postal</th>
+      <th>País</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-address>
+    <tr>
+      <td>{{ address.addressLine1 }}</td>
+      <td>{{ address.addressLine2 }}</td>
+      <td>{{ address.city }}</td>
+      <td>{{ address.region }}</td>
+      <td>{{ address.postalCode }}</td>
+      <td>{{ getCountryName(address.countryId) }}</td>
+      <td>
+        <button pButton type="button" icon="pi pi-pencil" class="button-green" (click)="editAddress(address)"></button>
+        <button pButton type="button" icon="pi pi-trash" class="button-red" (click)="deleteAddress(address.id)"></button>
+        <button pButton type="button" icon="pi pi-check" label="Set Default" (click)="setDefaultAddress(address)" [disabled]="address.isDefault"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
